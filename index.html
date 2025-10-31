@@ -90,12 +90,14 @@
       overflow: hidden;
     }
     .banner img {
-      width: 100%;
-      height: auto;
-      min-height: 120px;
-      object-fit: cover;
-      display: block;
-    }
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  object-position: center;
+  background: #000;
+  display: block;
+}
     /* Form Inputs */
     .g-input, .g-select {
       background: rgba(0, 0, 0, 0.08);
