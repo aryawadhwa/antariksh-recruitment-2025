@@ -240,7 +240,7 @@
         <label for="name" class="block text-base font-medium mb-2">
           Name <span class="text-red-400">*</span>
         </label>
-        <input type="text" id="name" name="entry.######name" required class="g-input" placeholder="Your full name" />
+        <input type="text" id="name" name="name" required class="g-input" placeholder="Your full name" />
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Please enter your name.</p>
       </div>
 
@@ -249,7 +249,7 @@
         <label for="usn" class="block text-base font-medium mb-2">
           USN <span class="text-red-400">*</span>
         </label>
-        <input type="text" id="usn" name="entry.######usn" required class="g-input" placeholder="e.g., 1XX23CS001" pattern="[0-9A-Z]{10}" />
+        <input type="text" id="usn" name="usn" required class="g-input" placeholder="e.g., 1XX23CS001" pattern="[0-9A-Z]{10}" />
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid 10-character USN.</p>
       </div>
 
@@ -258,7 +258,7 @@
         <label for="phone" class="block text-base font-medium mb-2">
           Phone Number <span class="text-red-400">*</span>
         </label>
-        <input type="tel" id="phone" name="entry.######phone" required class="g-input" placeholder="9876543210" pattern="[0-9]{10}" />
+        <input type="tel" id="phone" name="phone" required class="g-input" placeholder="9876543210" pattern="[0-9]{10}" />
         <p class="text-xs mt-1 opacity-75">10-digit mobile number</p>
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid 10-digit number.</p>
       </div>
@@ -268,7 +268,7 @@
         <label for="email" class="block text-base font-medium mb-2">
           College Email ID <span class="text-red-400">*</span>
         </label>
-        <input type="email" id="email" name="entry.######email" required class="g-input" placeholder="name.branchyear@rvce.edu.in" />
+        <input type="email" id="email" name="email" required class="g-input" placeholder="name.branchyear@rvce.edu.in" />
         <p class="text-xs mt-1 opacity-75">Use your official college email</p>
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid email.</p>
       </div>
@@ -278,11 +278,11 @@
         <legend class="text-base font-medium mb-3">Year <span class="text-red-400">*</span></legend>
         <div class="space-y-2">
           <label class="flex items-center">
-            <input type="radio" name="entry.######year" value="2" required class="g-radio mr-3" />
+            <input type="radio" name="year" value="2" required class="g-radio mr-3" />
             <span>1st Year</span>
           </label>
           <label class="flex items-center">
-            <input type="radio" name="entry.######year" value="3" class="g-radio mr-3" />
+            <input type="radio" name="year" value="3" class="g-radio mr-3" />
             <span>2nd Year</span>
           </label>
         </div>
@@ -294,7 +294,7 @@
         <label for="branch" class="block text-base font-medium mb-2">
           Branch <span class="text-red-400">*</span>
         </label>
-        <select id="branch" name="entry.######branch" required class="g-select">
+        <select id="branch" name="branch" required class="g-select">
           <option value="" disabled selected>Select your branch</option>
           <option value="CS">Computer Science (CS)</option>
           <option value="CY">Computer Science - Cyber Security (CY)</option>
@@ -319,7 +319,7 @@
         <label for="interest" class="block text-base font-medium mb-2">
           Why are you interested in Team Antariksh? <span class="text-red-400">*</span>
         </label>
-        <textarea id="interest" name="entry.######interest" rows="4" required class="g-input resize-y" 
+        <textarea id="interest" name="interest" rows="4" required class="g-input resize-y" 
                   placeholder="Share your passion for space, rocketry, or innovation..."></textarea>
         <p class="text-xs text-red-400 mt-1 hidden error-msg">This field is required.</p>
       </div>
@@ -358,7 +358,7 @@
       const modalName = document.getElementById('modal-applicant-name');
       const closeBtn = document.getElementById('closeModalBtn');
       const submitBtn = document.getElementById('submitBtn');
-      const FORM_ENDPOINT = 'https://docs.google.com/forms/d/{FORM_ID}/formResponse'; // Replace {FORM_ID}
+      const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx.../exec';// Replace {FORM_ID}
 
       // Form submission
       form.addEventListener('submit', async (e) => {
