@@ -90,14 +90,14 @@
       overflow: hidden;
     }
     .banner img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: contain;
-  object-position: center;
-  background: #000;
-  display: block;
-}
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      object-position: center;
+      background: #000;
+      display: block;
+    }
     /* Form Inputs */
     .g-input, .g-select {
       background: rgba(255, 255, 255, 0.08);
@@ -122,27 +122,26 @@
       border-color: #f87171;
       box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
     }
-    /* Select Arrow */
-    /* Select Dropdown - FIXED for Windows & All Browsers */
-.g-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: rgba(255, 255, 255, 0.08);
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 12px;
-  color: white;
-  padding-right: 2.5rem;
-}
-.g-select option {
-  background-color: #1a1a1a;
-  color: white;
-}
-.g-select:focus {
-  background-color: rgba(255, 255, 255, 0.12);
-}
+    /* Select Dropdown */
+    .g-select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: rgba(255, 255, 255, 0.08);
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px;
+      color: white;
+      padding-right: 2.5rem;
+    }
+    .g-select option {
+      background-color: #1a1a1a;
+      color: white;
+    }
+    .g-select:focus {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
     /* Submit Button */
     .btn-submit {
       background: linear-gradient(to right, rgb(var(--purple-700)), rgb(var(--purple-600)));
@@ -206,7 +205,6 @@
   <!-- Main Form -->
   <div class="form-card">
     <div class="bg-gradient-to-r from-purple-700 to-indigo-600 h-1"></div>
-
     <!-- IMAGE BANNER -->
     <div class="banner" role="banner" aria-label="Team Antariksh Recruitment 2025">
       <img
@@ -229,7 +227,7 @@
           Name <span class="text-red-400">*</span>
         </label>
         <input type="text" id="name" name="name" required class="g-input" placeholder="Your full name" />
-        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please66 enter your name.</p>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please enter your name.</p>
       </div>
 
       <!-- USN -->
@@ -261,47 +259,47 @@
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid email.</p>
       </div>
 
-      <!-- Year - FIXED -->
+      <!-- Year -->
       <fieldset>
         <legend class="text-base font-medium mb-3">Year <span class="text-red-400">*</span></legend>
         <div class="space-y-2">
           <label class="flex items-center">
             <input type="radio" name="year" value="2" class="g-radio mr-3" />
-            <span>1nd Year</span>
+            <span>1st Year</span>
           </label>
           <label class="flex items-center">
             <input type="radio" name="year" value="3" class="g-radio mr-3" />
-            <span>2rd Year</span>
+            <span>2nd Year</span>
           </label>
         </div>
         <p class="text-xs text-red-400 mt-1 hidden error-msg" id="year-error">Please select your year.</p>
       </fieldset>
 
       <!-- Branch Dropdown (Alphabetical) -->
-<div>
-  <label for="branch" class="block text-base font-medium mb-2">
-    Branch <span class="text-red-400">*</span>
-  </label>
-  <select id="branch" name="branch" required class="g-select">
-    <option value="" disabled selected>Select your branch</option>
+      <div>
+        <label for="branch" class="block text-base font-medium mb-2">
+          Branch <span class="text-red-400">*</span>
+        </label>
+        <select id="branch" name="branch" required class="g-select">
+          <option value="" disabled selected>Select your branch</option>
+          <option value="AS">Aerospace Engineering (AS)</option>
+          <option value="BT">Biotechnology (BT)</option>
+          <option value="CE">Civil Engineering (CE)</option>
+          <option value="CH">Chemical Engineering (CH)</option>
+          <option value="CI">CS - Artificial Intelligence and Machine Learning (CI)</option>
+          <option value="CS">Computer Science (CS)</option>
+          <option value="CY">Computer Science - Cyber Security (CY)</option>
+          <option value="DS">Computer Science - Data Science (DS)</option>
+          <option value="EC">Electronics and Communication (EC)</option>
+          <option value="EE">Electrical and Electronics (EE)</option>
+          <option value="ET">Electronics and Telecommunications (ET)</option>
+          <option value="IEM">Industrial Engineering and Management (IEM)</option>
+          <option value="IS">Information Science (IS)</option>
+          <option value="ME">Mechanical Engineering (ME)</option>
+        </select>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please select your branch.</p>
+      </div>
 
-    <option value="AS">Aerospace Engineering (AS)</option>
-    <option value="BT">Biotechnology (BT)</option>
-    <option value="CE">Civil Engineering (CE)</option>
-    <option value="CH">Chemical Engineering (CH)</option>
-    <option value="CI">CS - Artificial Intelligence and Machine Learning (CI)</option>
-    <option value="CS">Computer Science (CS)</option>
-    <option value="CY">Computer Science - Cyber Security (CY)</option>
-    <option value="DS">Computer Science - Data Science (DS)</option>
-    <option value="EC">Electronics and Communication (EC)</option>
-    <option value="EE">Electrical and Electronics (EE)</option>
-    <option value="ET">Electronics and Telecommunications (ET)</option>
-    <option value="IEM">Industrial Engineering and Management (IEM)</option>
-    <option value="IS">Information Science (IS)</option>
-    <option value="ME">Mechanical Engineering (ME)</option>
-  </select>
-  <p class="text-xs text-red-400 mt-1 hidden error-msg">Please select your branch.</p>
-</div>
       <!-- Interest -->
       <div>
         <label for="interest" class="block text-base font-medium mb-2">
@@ -341,31 +339,34 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('recruitmentForm');
-  const submitBtn = document.getElementById('submitBtn');
-
-  // CHECK FOR PREVIOUS SUBMISSION
-  const usnInput = document.getElementById('usn');
-  const checkSubmission = () => {
-    const usn = usnInput.value.trim().toUpperCase();
-    if (usn && localStorage.getItem('formSubmitted_' + usn) === 'true') {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Already Submitted';
-      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-      // Optional: show message
-      const msg = document.createElement('p');
-      msg.textContent = 'You have already submitted the form with this USN.';
-      msg.className = 'text-red-400 text-sm mt-2';
-      submitBtn.parentElement.appendChild(msg);
-    }
-  };
-
-  // Re-check on USN input
-  usnInput.addEventListener('input', checkSubmission);
+      const form = document.getElementById('recruitmentForm');
+      const modal = document.getElementById('thankYouModal');
+      const modalName = document.getElementById('modal-applicant-name');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const yearError = document.getElementById('year-error');
+      const usnInput = document.getElementById('usn');
 
       // REPLACE WITH YOUR ACTUAL WEB APP URL
       const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxt_2fRQxpTJo_9m7JOGNBdlI3IC46if2hOkcWxC0QHO3Gl4tEkLhyvA2zpskJi177p5Q/exec';
 
+      // === PREVENT MULTIPLE SUBMISSIONS ===
+      const checkSubmission = () => {
+        const usn = usnInput.value.trim().toUpperCase();
+        if (usn && localStorage.getItem('formSubmitted_' + usn) === 'true') {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Already Submitted';
+          submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+          const msg = document.createElement('p');
+          msg.textContent = 'You have already submitted the form with this USN.';
+          msg.className = 'text-red-400 text-sm mt-2';
+          submitBtn.parentElement.appendChild(msg);
+        }
+      };
+      usnInput.addEventListener('input', checkSubmission);
+      checkSubmission(); // Run on load
+
+      // === FORM SUBMISSION ===
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -423,12 +424,19 @@
         const formData = new FormData(form);
 
         try {
-          // AFTER successful submission, BEFORE showing modal
-        const usn = document.getElementById('usn').value.trim().toUpperCase();
-        localStorage.setItem('formSubmitted_' + usn, 'true');
-        localStorage.setItem('submissionTime_' + usn, Date.now());
-          };
+          const response = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            body: formData
+          });
 
+          if (!response.ok) throw new Error('Network error');
+
+          // === MARK AS SUBMITTED ===
+          const usn = usnInput.value.trim().toUpperCase();
+          localStorage.setItem('formSubmitted_' + usn, 'true');
+          localStorage.setItem('submissionTime_' + usn, Date.now());
+
+          // Show success
           const name = document.getElementById('name').value.trim().split(' ')[0] || 'Applicant';
           modalName.textContent = name;
           modal.classList.remove('hidden');
@@ -443,7 +451,7 @@
         }
       });
 
-      // Close modal
+      // === MODAL CLOSE ===
       const closeModal = () => {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
@@ -452,7 +460,7 @@
       modal.addEventListener('click', e => e.target === modal && closeModal());
       document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
 
-      // Reset form
+      // === RESET FORM ===
       form.addEventListener('reset', () => {
         setTimeout(() => {
           document.querySelectorAll('.g-input, .g-select').forEach(el => el.classList.remove('error'));
