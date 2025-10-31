@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Antariksh - Recruitment 2025</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&family=Orbitron:wght@700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --purple-glow: 167, 139, 250;
+      --purple-600: 139, 92, 246;
+      --purple-700: 109, 40, 217;
+    }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: #000;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+
+    /* Starfield Background */
+    .starfield::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 120px, #ddd, transparent);
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      animation: starfield 60s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes starfield {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    /* Shooting Stars */
+    .shooting-star {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 8px 2px rgba(255,255,255,0.8);
+      z-index: -1;
+      opacity: 0;
+      animation: shoot linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shoot {
+      0%, 8% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+      12% { opacity: 1; }
+      70% { opacity: 1; transform: translate(-500px, 500px) scale(1); }
+      100% { opacity: 0; transform: translate(-600px, 600px) scale(0.3); }
+    }
+
+    .shooting-star:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; animation-duration: 3.2s; }
+    .shooting-star:nth-child(2) { top: 25%; left: 90%; animation-delay: 2.1s; animation-duration: 4s; }
+    .shooting-star:nth-child(3) { top: 8%; left: 70%; animation-delay: 4.3s; animation-duration: 3.5s; }
+    .shooting-star:nth-child(4) { top: 35%; left: 78%; animation-delay: 6.5s; animation-duration: 3s; }
+    .shooting-star:nth-child(5) { top: 18%; left: 65%; animation-delay: 8.7s; animation-duration: 4.2s; }
+
+    /* Form Card */
+    .form-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      max-width: 680px;
+      width: 100%;
+      z-index: 10;
+    }
+
+    /* Image Banner */
+    .banner {
+      padding: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      min-height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Form Inputs */
+    .g-input, .g-select {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .g-input::placeholder, .g-select::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .g-input:focus, .g-select:focus {
+      outline: none;
+      border-color: rgb(var(--purple-glow));
+      box-shadow: 0 0 0 3px rgba(var(--purple-glow), 0.2);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .g-input.error, .g-select.error {
+      border-color: #f87171;
+      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+    }
+
+    /* Select Arrow */
+    .g-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px;
+    }
+
+    /* Submit Button */
+    .btn-submit {
+      background: linear-gradient(to right, rgb(var(--purple-700)), rgb(var(--purple-600)));
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(109, 40, 217, 0.5);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Modal */
+    .modal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .modal .modal-content {
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .modal:not(.hidden) .modal-content {
+      transform: scale(1);
+    }
+
+    /* Loading spinner */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="starfield">
+
+  <!-- Shooting Stars -->
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+
+  <!-- Main Form -->
+  <div class="form-card">
+    <div class="bg-gradient-to-r from-purple-700 to-indigo-600 h-1"></div>
+
+    <!-- WORKING IMAGE BANNER -->
+  <div class="banner" role="banner" aria-label="Team Antariksh Recruitment 2025">
+    <img 
+      src="https://res.cloudinary.com/dcxor5fht/image/upload/v1761925448/Title_subtitle_1_lc1lpg.png" 
+      alt="Team Antariksh Recruitment 2025"
+      loading="lazy"
+    />
+  </div>
+
+    <!-- Form -->
+    <form id="recruitmentForm" class="p-6 space-y-7" novalidate>
+      <p class="text-sm opacity-80">
+        This form collects your email automatically. 
+        <a href="#" class="text-blue-400 hover:underline">Change settings</a>
+      </p>
+
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-base font-medium mb-2">
+          Name <span class="text-red-400">*</span>
+        </label>
+        <input type="text" id="name" name="entry.######name" required class="g-input" placeholder="Your full name" />
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please enter your name.</p>
+      </div>
+
+      <!-- USN -->
+      <div>
+        <label for="usn" class="block text-base font-medium mb-2">
+          USN <span class="text-red-400">*</span>
+        </label>
+        <input type="text" id="usn" name="entry.######usn" required class="g-input" placeholder="e.g., 1XX23CS001" pattern="[0-9A-Z]{10}" />
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid 10-character USN.</p>
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label for="phone" class="block text-base font-medium mb-2">
+          Phone Number <span class="text-red-400">*</span>
+        </label>
+        <input type="tel" id="phone" name="entry.######phone" required class="g-input" placeholder="9876543210" pattern="[0-9]{10}" />
+        <p class="text-xs mt-1 opacity-75">10-digit mobile number</p>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid 10-digit number.</p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-base font-medium mb-2">
+          College Email ID <span class="text-red-400">*</span>
+        </label>
+        <input type="email" id="email" name="entry.######email" required class="g-input" placeholder="name.branchyear@rvce.edu.in" />
+        <p class="text-xs mt-1 opacity-75">Use your official college email</p>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid email.</p>
+      </div>
+
+      <!-- Year -->
+      <fieldset>
+        <legend class="text-base font-medium mb-3">Year <span class="text-red-400">*</span></legend>
+        <div class="space-y-2">
+          <label class="flex items-center">
+            <input type="radio" name="entry.######year" value="2" required class="g-radio mr-3" />
+            <span>1st Year</span>
+          </label>
+          <label class="flex items-center">
+            <input type="radio" name="entry.######year" value="3" class="g-radio mr-3" />
+            <span>2nd Year</span>
+          </label>
+        </div>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please select your year.</p>
+      </fieldset>
+
+      <!-- Branch Dropdown -->
+      <div>
+        <label for="branch" class="block text-base font-medium mb-2">
+          Branch <span class="text-red-400">*</span>
+        </label>
+        <select id="branch" name="entry.######branch" required class="g-select">
+          <option value="" disabled selected>Select your branch</option>
+          <option value="CS">Computer Science (CS)</option>
+          <option value="CY">Computer Science - Cyber Security (CY)</option>
+          <option value="DS">Computer Science - Data Science (DS)</option>
+          <option value="CI">CS - Artificial Intelligence and Machine Learning (CI)</option>
+          <option value="IS">Information Science (IS)</option>
+          <option value="EC">Electronics and Communication (EC)</option>
+          <option value="ET">Electronics and Telecommunications (ET)</option>
+          <option value="EE">Electrical and Electronics (EE)</option>
+          <option value="CE">Civil Engineering (CE)</option>
+          <option value="ME">Mechanical Engineering (ME)</option>
+          <option value="AS">Aerospace Engineering (AS)</option>
+          <option value="BT">Biotechnology (BT)</option>
+          <option value="IEM">Industrial Engineering and Management (IEM)</option>
+          <option value="CH">Chemical Engineering (CH)</option>
+        </select>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please select your branch.</p>
+      </div>
+
+      <!-- Interest -->
+      <div>
+        <label for="interest" class="block text-base font-medium mb-2">
+          Why are you interested in Team Antariksh? <span class="text-red-400">*</span>
+        </label>
+        <textarea id="interest" name="entry.######interest" rows="4" required class="g-input resize-y" 
+                  placeholder="Share your passion for space, rocketry, or innovation..."></textarea>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">This field is required.</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-4">
+        <button type="submit" id="submitBtn" class="btn-submit flex items-center justify-center">
+          Submit Application
+        </button>
+        <button type="reset" class="text-purple-300 hover:text-purple-100 text-sm font-medium self-start sm:self-center">
+          Clear Form
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Thank You Modal -->
+  <div id="thankYouModal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50" 
+       role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full modal-content text-center">
+      <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 mb-3">Application Received!</h3>
+      <p class="text-gray-700 mb-5">
+        Thank you, <span id="modal-applicant-name" class="font-semibold text-purple-700"></span>!<br>
+        Your application has been successfully submitted.
+      </p>
+      <button id="closeModalBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium py-3 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('recruitmentForm');
+      const modal = document.getElementById('thankYouModal');
+      const modalName = document.getElementById('modal-applicant-name');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const FORM_ENDPOINT = 'https://docs.google.com/forms/d/{FORM_ID}/formResponse'; // Replace {FORM_ID}
+
+      // Form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Reset errors
+        document.querySelectorAll('.error-msg').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.g-input, .g-select').forEach(el => el.classList.remove('error'));
+
+        let valid = true;
+
+        const fields = [
+          { id: 'name', msg: 'Please enter your name.' },
+          { id: 'usn', msg: 'Enter a valid 10-character USN.', test: v => /^[A-Z0-9]{10}$/.test(v) },
+          { id: 'phone', msg: 'Enter a valid 10-digit number.', test: v => /^\d{10}$/.test(v) },
+          { id: 'email', msg: 'Enter a valid email.', test: v => /.+@.+\..+/.test(v) },
+          { id: 'interest', msg: 'This field is required.' },
+          { selector: 'input[name="entry.######year"]:checked', msg: 'Please select your year.' },
+          { id: 'branch', msg: 'Please select your branch.' }
+        ];
+
+        fields.forEach(field => {
+          let el;
+          if (field.id) {
+            el = document.getElementById(field.id);
+            if (!el.value.trim() || (field.test && !field.test(el.value))) {
+              el.classList.add('error');
+              const errorEl = el.parentElement.querySelector('.error-msg');
+              if (errorEl) errorEl.classList.remove('hidden');
+              valid = false;
+            }
+          } else if (field.selector) {
+            el = document.querySelector(field.selector);
+            if (!el) {
+              const fieldset = document.querySelector('fieldset');
+              const errorEl = fieldset.querySelector('.error-msg');
+              if (errorEl) errorEl.classList.remove('hidden');
+              valid = false;
+            }
+          }
+        });
+
+        if (!valid || !form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="loading"></span> Submitting...';
+
+        const formData = new FormData(form);
+
+        try {
+          await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+          });
+
+          const name = document.getElementById('name').value.trim().split(' ')[0] || 'Applicant';
+          modalName.textContent = name;
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+
+        } catch (error) {
+          alert('Submission failed. Please try again.');
+          console.error(error);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit Application';
+        }
+      });
+
+      // Close modal
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', e => e.target === modal && closeModal());
+      document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
+
+      // Reset form
+      form.addEventListener('reset', () => {
+        setTimeout(() => {
+          document.querySelectorAll('.g-input, .g-select').forEach(el => el.classList.remove('error'));
+          document.querySelectorAll('.error-msg').forEach(el => el.classList.add('hidden'));
+        }, 0);
+      });
+    });
+  </script>
+</body>
+</html>
