@@ -341,12 +341,27 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('recruitmentForm');
-      const modal = document.getElementById('thankYouModal');
-      const modalName = document.getElementById('modal-applicant-name');
-      const closeBtn = document.getElementById('closeModalBtn');
-      const submitBtn = document.getElementById('submitBtn');
-      const yearError = document.getElementById('year-error');
+  const form = document.getElementById('recruitmentForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // CHECK FOR PREVIOUS SUBMISSION
+  const usnInput = document.getElementById('usn');
+  const checkSubmission = () => {
+    const usn = usnInput.value.trim().toUpperCase();
+    if (usn && localStorage.getItem('formSubmitted_' + usn) === 'true') {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Already Submitted';
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      // Optional: show message
+      const msg = document.createElement('p');
+      msg.textContent = 'You have already submitted the form with this USN.';
+      msg.className = 'text-red-400 text-sm mt-2';
+      submitBtn.parentElement.appendChild(msg);
+    }
+  };
+
+  // Re-check on USN input
+  usnInput.addEventListener('input', checkSubmission);
 
       // REPLACE WITH YOUR ACTUAL WEB APP URL
       const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxt_2fRQxpTJo_9m7JOGNBdlI3IC46if2hOkcWxC0QHO3Gl4tEkLhyvA2zpskJi177p5Q/exec';
@@ -408,10 +423,11 @@
         const formData = new FormData(form);
 
         try {
-          await fetch(FORM_ENDPOINT, {
-            method: 'POST',
-            body: formData
-          });
+          // AFTER successful submission, BEFORE showing modal
+        const usn = document.getElementById('usn').value.trim().toUpperCase();
+        localStorage.setItem('formSubmitted_' + usn, 'true');
+        localStorage.setItem('submissionTime_' + usn, Date.now());
+          };
 
           const name = document.getElementById('name').value.trim().split(' ')[0] || 'Applicant';
           modalName.textContent = name;
