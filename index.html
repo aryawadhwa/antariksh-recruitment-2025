@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Team Antariksh - Recruitment 2025</title>
-
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&family=Orbitron:wght@700&display=swap" rel="stylesheet"/>
-
   <style>
     :root {
       --purple-glow: 167, 139, 250;
       --purple-600: 139, 92, 246;
       --purple-700: 109, 40, 217;
     }
-
     body {
       font-family: 'Exo 2', sans-serif;
       background: #000;
@@ -29,7 +25,6 @@
       padding: 1rem;
       overflow-x: hidden;
     }
-
     /* Starfield Background */
     .starfield::before {
       content: '';
@@ -47,12 +42,10 @@
       animation: starfield 60s linear infinite;
       pointer-events: none;
     }
-
     @keyframes starfield {
       from { transform: translateY(0); }
       to { transform: translateY(-200px); }
     }
-
     /* Shooting Stars */
     .shooting-star {
       position: fixed;
@@ -66,20 +59,17 @@
       animation: shoot linear infinite;
       pointer-events: none;
     }
-
     @keyframes shoot {
       0%, 8% { opacity: 0; transform: translate(0, 0) scale(0.3); }
       12% { opacity: 1; }
       70% { opacity: 1; transform: translate(-500px, 500px) scale(1); }
       100% { opacity: 0; transform: translate(-600px, 600px) scale(0.3); }
     }
-
     .shooting-star:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; animation-duration: 3.2s; }
     .shooting-star:nth-child(2) { top: 25%; left: 90%; animation-delay: 2.1s; animation-duration: 4s; }
     .shooting-star:nth-child(3) { top: 8%; left: 70%; animation-delay: 4.3s; animation-duration: 3.5s; }
     .shooting-star:nth-child(4) { top: 35%; left: 78%; animation-delay: 6.5s; animation-duration: 3s; }
     .shooting-star:nth-child(5) { top: 18%; left: 65%; animation-delay: 8.7s; animation-duration: 4.2s; }
-
     /* Form Card */
     .form-card {
       background: rgba(255, 255, 255, 0.06);
@@ -93,14 +83,12 @@
       width: 100%;
       z-index: 10;
     }
-
     /* Image Banner */
     .banner {
       padding: 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       overflow: hidden;
     }
-
     .banner img {
       width: 100%;
       height: auto;
@@ -108,7 +96,6 @@
       object-fit: cover;
       display: block;
     }
-
     /* Form Inputs */
     .g-input, .g-select {
       background: rgba(255, 255, 255, 0.08);
@@ -120,23 +107,19 @@
       font-size: 1rem;
       transition: all 0.2s ease;
     }
-
     .g-input::placeholder, .g-select::placeholder {
       color: rgba(255, 255, 255, 0.6);
     }
-
     .g-input:focus, .g-select:focus {
       outline: none;
       border-color: rgb(var(--purple-glow));
       box-shadow: 0 0 0 3px rgba(var(--purple-glow), 0.2);
       background: rgba(255, 255, 255, 0.12);
     }
-
     .g-input.error, .g-select.error {
       border-color: #f87171;
       box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
     }
-
     /* Select Arrow */
     .g-select {
       appearance: none;
@@ -145,7 +128,6 @@
       background-position: right 1rem center;
       background-size: 12px;
     }
-
     /* Submit Button */
     .btn-submit {
       background: linear-gradient(to right, rgb(var(--purple-700)), rgb(var(--purple-600)));
@@ -158,37 +140,30 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
     }
-
     .btn-submit:hover:not(:disabled) {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(109, 40, 217, 0.5);
     }
-
     .btn-submit:disabled {
       opacity: 0.7;
       cursor: not-allowed;
       transform: none;
     }
-
     /* Modal */
     .modal {
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-
     .modal.hidden {
       opacity: 0;
       visibility: hidden;
     }
-
     .modal .modal-content {
       transform: scale(0.9);
       transition: transform 0.3s ease;
     }
-
     .modal:not(.hidden) .modal-content {
       transform: scale(1);
     }
-
     /* Loading spinner */
     .loading {
       display: inline-block;
@@ -200,14 +175,12 @@
       animation: spin 1s ease-in-out infinite;
       margin-right: 8px;
     }
-
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body class="starfield">
-
   <!-- Shooting Stars -->
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
@@ -219,19 +192,19 @@
   <div class="form-card">
     <div class="bg-gradient-to-r from-purple-700 to-indigo-600 h-1"></div>
 
-    <!-- WORKING IMAGE BANNER -->
-  <div class="banner" role="banner" aria-label="Team Antariksh Recruitment 2025">
-    <img 
-      src="https://res.cloudinary.com/dcxor5fht/image/upload/v1761925448/Title_subtitle_1_lc1lpg.png" 
-      alt="Team Antariksh Recruitment 2025"
-      loading="lazy"
-    />
-  </div>
+    <!-- IMAGE BANNER -->
+    <div class="banner" role="banner" aria-label="Team Antariksh Recruitment 2025">
+      <img
+        src="https://res.cloudinary.com/dcxor5fht/image/upload/v1761925448/Title_subtitle_1_lc1lpg.png"
+        alt="Team Antariksh Recruitment 2025"
+        loading="lazy"
+      />
+    </div>
 
     <!-- Form -->
     <form id="recruitmentForm" class="p-6 space-y-7" novalidate>
       <p class="text-sm opacity-80">
-        This form collects your email automatically. 
+        This form collects your email automatically.
         <a href="#" class="text-blue-400 hover:underline">Change settings</a>
       </p>
 
@@ -241,7 +214,7 @@
           Name <span class="text-red-400">*</span>
         </label>
         <input type="text" id="name" name="name" required class="g-input" placeholder="Your full name" />
-        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please enter your name.</p>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please66 enter your name.</p>
       </div>
 
       <!-- USN -->
@@ -273,20 +246,20 @@
         <p class="text-xs text-red-400 mt-1 hidden error-msg">Enter a valid email.</p>
       </div>
 
-      <!-- Year -->
+      <!-- Year - FIXED -->
       <fieldset>
         <legend class="text-base font-medium mb-3">Year <span class="text-red-400">*</span></legend>
         <div class="space-y-2">
           <label class="flex items-center">
-            <input type="radio" name="year" value="2" required class="g-radio mr-3" />
-            <span>1st Year</span>
+            <input type="radio" name="year" value="2" class="g-radio mr-3" />
+            <span>2nd Year</span>
           </label>
           <label class="flex items-center">
             <input type="radio" name="year" value="3" class="g-radio mr-3" />
-            <span>2nd Year</span>
+            <span>3rd Year</span>
           </label>
         </div>
-        <p class="text-xs text-red-400 mt-1 hidden error-msg">Please select your year.</p>
+        <p class="text-xs text-red-400 mt-1 hidden error-msg" id="year-error">Please select your year.</p>
       </fieldset>
 
       <!-- Branch Dropdown -->
@@ -319,7 +292,7 @@
         <label for="interest" class="block text-base font-medium mb-2">
           Why are you interested in Team Antariksh? <span class="text-red-400">*</span>
         </label>
-        <textarea id="interest" name="interest" rows="4" required class="g-input resize-y" 
+        <textarea id="interest" name="interest" rows="4" required class="g-input resize-y"
                   placeholder="Share your passion for space, rocketry, or innovation..."></textarea>
         <p class="text-xs text-red-400 mt-1 hidden error-msg">This field is required.</p>
       </div>
@@ -337,7 +310,7 @@
   </div>
 
   <!-- Thank You Modal -->
-  <div id="thankYouModal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50" 
+  <div id="thankYouModal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50"
        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full modal-content text-center">
       <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 mb-3">Application Received!</h3>
@@ -358,55 +331,62 @@
       const modalName = document.getElementById('modal-applicant-name');
       const closeBtn = document.getElementById('closeModalBtn');
       const submitBtn = document.getElementById('submitBtn');
-      const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx.../exec';// Replace {FORM_ID}
+      const yearError = document.getElementById('year-error');
 
-      // Form submission
+      // REPLACE WITH YOUR ACTUAL WEB APP URL
+      const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx.../exec';
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Reset errors
         document.querySelectorAll('.error-msg').forEach(el => el.classList.add('hidden'));
         document.querySelectorAll('.g-input, .g-select').forEach(el => el.classList.remove('error'));
+        yearError.classList.add('hidden');
 
         let valid = true;
 
-        const fields = [
+        // Validate text fields
+        const textFields = [
           { id: 'name', msg: 'Please enter your name.' },
           { id: 'usn', msg: 'Enter a valid 10-character USN.', test: v => /^[A-Z0-9]{10}$/.test(v) },
           { id: 'phone', msg: 'Enter a valid 10-digit number.', test: v => /^\d{10}$/.test(v) },
           { id: 'email', msg: 'Enter a valid email.', test: v => /.+@.+\..+/.test(v) },
-          { id: 'interest', msg: 'This field is required.' },
-          { selector: 'input[name="year"]:checked', msg: 'Please select your year.' },
-          { id: 'branch', msg: 'Please select your branch.' }
+          { id: 'interest', msg: 'This field is required.' }
         ];
 
-        fields.forEach(field => {
-          let el;
-          if (field.id) {
-            el = document.getElementById(field.id);
-            if (!el.value.trim() || (field.test && !field.test(el.value))) {
-              el.classList.add('error');
-              const errorEl = el.parentElement.querySelector('.error-msg');
-              if (errorEl) errorEl.classList.remove('hidden');
-              valid = false;
-            }
-          } else if (field.selector) {
-            el = document.querySelector(field.selector);
-            if (!el) {
-              const fieldset = document.querySelector('fieldset');
-              const errorEl = fieldset.querySelector('.error-msg');
-              if (errorEl) errorEl.classList.remove('hidden');
-              valid = false;
-            }
+        textFields.forEach(field => {
+          const el = document.getElementById(field.id);
+          if (!el.value.trim() || (field.test && !field.test(el.value.trim()))) {
+            el.classList.add('error');
+            const errorEl = el.parentElement.querySelector('.error-msg');
+            if (errorEl) errorEl.classList.remove('hidden');
+            valid = false;
           }
         });
 
-        if (!valid || !form.checkValidity()) {
+        // Validate Year
+        const yearSelected = document.querySelector('input[name="year"]:checked');
+        if (!yearSelected) {
+          yearError.classList.remove('hidden');
+          valid = false;
+        }
+
+        // Validate Branch
+        const branch = document.getElementById('branch');
+        if (!branch.value) {
+          branch.classList.add('error');
+          const errorEl = branch.parentElement.querySelector('.error-msg');
+          if (errorEl) errorEl.classList.remove('hidden');
+          valid = false;
+        }
+
+        if (!valid) {
           form.reportValidity();
           return;
         }
 
-        // Show loading
+        // Submit
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="loading"></span> Submitting...';
 
@@ -415,7 +395,6 @@
         try {
           await fetch(FORM_ENDPOINT, {
             method: 'POST',
-            mode: 'no-cors',
             body: formData
           });
 
