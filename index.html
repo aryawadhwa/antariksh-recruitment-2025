@@ -451,10 +451,14 @@
       });
 
       // === MODAL CLOSE ===
-      const closeModal = () => {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-      };
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        
+        // --- ADD THIS LINE TO REDIRECT ---
+        window.location.href = 'https://www.instagram.com/teamantarikshofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==';
+      };
+      
       closeBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', e => e.target === modal && closeModal());
       document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
