@@ -385,7 +385,7 @@
         // Validate text fields
         const textFields = [
           { id: 'name', msg: 'Please enter your name.' },
-          { id: 'usn', msg: 'Enter a valid 10-character USN.', test: v => /^[A-Z0-9]{10}$/.test(v) },
+          { id: 'usn', msg: 'Please enter your SIN/USN.' },
           { id: 'phone', msg: 'Enter a valid 10-digit number.', test: v => /^\d{10}$/.test(v) },
           { id: 'email', msg: 'Enter a valid email.', test: v => /.+@.+\..+/.test(v) },
           { id: 'interest', msg: 'This field is required.' }
